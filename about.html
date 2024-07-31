@@ -56,6 +56,13 @@
     <div class="container">
         <div class="sidebar">
             <h2>Explore Your Type</h2>
+            <select id="dropdown-menu" class="dropdown-menu" onchange="handleDropdownChange(this)">
+                <option value="strengths">Strengths</option>
+                <option value="weaknesses">Weaknesses</option>
+                <option value="career">Career Paths</option>
+                <option value="relationships">Relationships</option>
+                <option value="growth">Personal Growth Tips</option>
+            </select>
             <ul>
                 <li class="active"><a href="#" class="tab-link" data-tab="strengths">Strengths</a></li>
                 <li><a href="#" class="tab-link" data-tab="weaknesses">Weaknesses</a></li>
@@ -145,26 +152,47 @@
 
 
     document.addEventListener('DOMContentLoaded', function () {
-        const tabLinks = document.querySelectorAll('.tab-link');
-        const tabContents = document.querySelectorAll('.tab-content');
+    const tabLinks = document.querySelectorAll('.tab-link');
+    const tabContents = document.querySelectorAll('.tab-content');
 
-        tabLinks.forEach(link => {
-            link.addEventListener('click', function (event) {
-                event.preventDefault();
+    tabLinks.forEach(link => {
+        link.addEventListener('click', function (event) {
+            event.preventDefault();
 
-                tabLinks.forEach(link => link.classList.remove('active'));
-                tabLinks.forEach(link => link.parentElement.classList.remove('active'));
+            tabLinks.forEach(link => link.classList.remove('active'));
+            tabLinks.forEach(link => link.parentElement.classList.remove('active'));
 
-                this.classList.add('active');
-                this.parentElement.classList.add('active');
+            this.classList.add('active');
+            this.parentElement.classList.add('active');
 
-                const target = this.getAttribute('data-tab');
-                tabContents.forEach(content => content.classList.remove('active'));
-                document.getElementById(target).classList.add('active');
-            });
+            const target = this.getAttribute('data-tab');
+            tabContents.forEach(content => content.classList.remove('active'));
+            document.getElementById(target).classList.add('active');
         });
     });
+});
 
+function handleDropdownChange(selectElement) {
+    const selectedTab = selectElement.value;
+    const allTabs = document.querySelectorAll('.tab-link');
+
+    allTabs.forEach(tab => {
+        if (tab.dataset.tab === selectedTab) {
+            tab.parentElement.classList.add('active');
+            tab.classList.add('active');
+        } else {
+            tab.parentElement.classList.remove('active');
+            tab.classList.remove('active');
+        }
+    });
+
+    const tabContents = document.querySelectorAll('.tab-content');
+    tabContents.forEach(content => content.classList.remove('active'));
+    document.getElementById(selectedTab).classList.add('active');
+}
+
+
+    
 
 </script>
 
