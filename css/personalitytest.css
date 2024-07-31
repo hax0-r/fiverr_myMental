@@ -1,0 +1,410 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    outline: none;
+    font-family: Poppins, sans-serif;
+    scroll-behavior: smooth;
+    text-decoration: none;
+}
+
+body {
+    animation: fadeIn 1s;
+}
+
+:root {
+    --black-color: rgb(29, 29, 29);
+    --white-color: #f7f7f7;
+    --darkBlue-color: #0c2e37;
+    --lightBlue-color: #14323d;
+    --yellow-color: #ffc55a;
+    --green-color: #416346;
+}
+
+.background {
+    background: url(/Assets/PersonalityTest/Hero.png) center;
+    background-size: cover;
+    min-height: 100vh;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+
+    img {
+        margin-top: .5rem;
+        height: 2rem;
+    }
+
+    ul {
+        display: flex;
+        gap: 1rem;
+        list-style: none;
+
+        li {
+            a {
+                text-decoration: none;
+                color: var(--white-color);
+                font-weight: 500;
+                position: relative;
+
+                &::before {
+                    content: '';
+                    width: 0%;
+                    height: 2px;
+                    background-color: var(--white-color);
+                    position: absolute;
+                    bottom: 0;
+                    left: 0;
+                    transition: 200ms all;
+                }
+
+                &:hover::before {
+                    width: 100%;
+                }
+            }
+        }
+    }
+
+    .fa-solid {
+        color: var(--white-color);
+        font-size: 1.2rem;
+        background-color: var(--darkBlue-color);
+        padding: .55rem .7rem;
+        border-radius: 5px;
+        cursor: pointer;
+        display: none;
+        transition: 200ms all;
+
+        &:hover {
+            opacity: .9;
+        }
+    }
+
+    @media screen and (max-width:600px) {
+        .fa-solid {
+            display: block;
+        }
+
+        ul {
+            display: none;
+        }
+    }
+}
+
+.nav-responsive {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 999;
+    background-color: #fff;
+    height: 100vh;
+    overflow: hidden;
+    -webkit-transition: 200ms all;
+    -o-transition: 200ms all;
+    transition: 200ms all;
+    max-width: 0rem;
+    width: 100%;
+}
+
+.nav-responsive .main {
+    border-right: 2px solid var(--black-color);
+    padding: 1rem;
+    height: 100vh;
+}
+
+.nav-responsive .main a img {
+    margin-top: 2rem;
+    height: 2rem;
+}
+
+.nav-responsive .main ul {
+    list-style: none;
+    padding-top: 2rem;
+}
+
+.nav-responsive .main ul li {
+    padding: 0.3rem;
+}
+
+.nav-responsive .main ul li a {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    width: 100%;
+    padding: 0.6rem;
+    text-decoration: none;
+    -webkit-transition: 200ms all;
+    -o-transition: 200ms all;
+    transition: 200ms all;
+    border-radius: 7px;
+    color: var(--black-color);
+}
+
+.nav-responsive .main ul li a:hover {
+    padding-left: 1.5rem;
+}
+
+.nav-responsive .main .fa-xmark {
+    position: absolute;
+    top: 2.4rem;
+    font-size: 1.4rem;
+    right: 2rem;
+    cursor: pointer;
+    padding: 0.2rem;
+    color: var(--white-color);
+    background-color: var(--black-color);
+    padding: .4rem .6rem;
+    border-radius: 5px;
+}
+
+.nav-responsive-close {
+    max-width: 21rem;
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+section {
+    .main {
+        margin: 2rem;
+        gap: 1rem;
+        max-width: 50%;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        min-height: 60vh;
+        color: var(--white-color);
+        align-items: start;
+
+        h1 {
+            font-weight: 700;
+            font-size: clamp(1.5rem, -0.875rem + 8.333vw, 2.8rem);
+        }
+
+        p {
+            font-size: 1rem;
+            font-weight: 400;
+        }
+
+        button {
+            margin-top: 1rem;
+            border-radius: 6.19rem;
+            border: none;
+            color: var(--white-color);
+            font-size: 1rem;
+            font-weight: 500;
+            background: #F26522;
+            padding: .7rem 1.5rem;
+            display: flex;
+            gap: .9rem;
+            align-items: center;
+            cursor: pointer;
+            transition: 200ms all;
+
+            &:hover {
+                gap: 1.5rem;
+            }
+        }
+    }
+
+    @media screen and (max-width:768px) {
+        .main {
+            max-width: unset;
+            margin: 0;
+            padding: 1rem;
+            min-height: 70vh;
+        }
+    }
+}
+
+.mentalHealth {
+    display: flex;
+    justify-content: center;
+    padding: 2rem;
+    margin: auto;
+    gap: 1rem;
+    align-items: center;
+
+    img {
+        max-width: 30rem;
+        width: 100%;
+    }
+}
+
+@media screen and (max-width:769px) {
+    .mentalHealth {
+        flex-direction: column;
+    }
+}
+
+.benefitMe {
+    background-color: #f9f9f9;
+    padding: 2rem;
+    margin-top: 2rem;
+
+    h1 {
+        color: rgb(29, 29, 29);
+        font-size: clamp(1.5rem, -0.875rem + 8.333vw, 2rem);
+        font-weight: 600;
+        text-align: center;
+    }
+
+    p {
+        color: rgb(29, 29, 29);
+        font-weight: 400;
+        padding-top: .5rem;
+        text-align: center;
+    }
+
+    .cards {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        margin: auto;
+        max-width: 70rem;
+        width: 100%;
+        gap: 2rem 5rem;
+
+        .card {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            max-width: 18rem;
+            width: 100%;
+            margin-top: 2.5rem;
+
+            img {
+                height: 3rem;
+            }
+
+            h2 {
+                padding-top: 1rem;
+                color: rgb(29, 29, 29);
+                font-weight: 600;
+                font-size: 1.2rem;
+            }
+
+            p {
+                color: rgb(29, 29, 29);
+                font-weight: 400;
+                font-size: .9rem;
+            }
+        }
+    }
+
+    @media screen and (max-width:700px) {
+        .cards {
+            gap: .5rem .5rem;
+        }
+    }
+}
+
+.accordion-container {
+    max-width: 75rem;
+    width: 100%;
+    margin: 20px auto;
+}
+
+.accordion-container h1 {
+    margin-top: 3rem;
+    padding: 2rem;
+    text-align: center;
+    font-size: clamp(1.5rem, -0.875rem + 8.333vw, 2.8rem);
+    color: #333;
+}
+
+.accordion {
+    /* background-color: #fff; */
+    /* border: 1px solid #ddd; */
+    border-radius: 5px;
+    /* box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); */
+    margin-bottom: 3rem;
+}
+
+.accordion-item {
+    border-bottom: 2px solid #dddddd4c;
+}
+
+.accordion-item:last-child {
+    border-bottom: none;
+}
+
+.accordion-title {
+    padding: 15px;
+    cursor: pointer;
+    /* background-color: #f1f1f1; */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.accordion-title h2 {
+    margin: 0;
+    font-size: 1rem;
+    font-weight: 500;
+    color: #333;
+
+}
+
+.accordion-content {
+    padding: 15px;
+    display: none;
+    background-color: #fff;
+    border-top: 1px solid #ddd;
+    animation: fadeIn 1s;
+    height: calc(auto);
+}
+
+.accordion-content p {
+    margin: 0;
+}
+
+footer {
+    background-color: var(--lightBlue-color);
+    padding: 2rem;
+    margin-top: 1rem;
+
+    a {
+        img {
+            height: 2rem;
+        }
+    }
+
+    p {
+        font-size: 1rem;
+        font-weight: 400;
+        text-align: left;
+        color: var(--white-color);
+        max-width: 28rem;
+        padding-top: .5rem;
+        width: 100%;
+    }
+
+    .links {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1rem;
+        font-size: 1.5rem;
+
+        a {
+            i {
+                color: var(--white-color);
+            }
+        }
+    }
+}
