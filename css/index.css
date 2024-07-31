@@ -593,10 +593,10 @@ nav {
 }
 
 @media screen and (max-width:500px) {
- .assessments{
-    padding: .9rem;
-    margin-top: 2rem;
- }
+    .assessments {
+        padding: .9rem;
+        margin-top: 2rem;
+    }
 }
 
 .testimonial {
@@ -665,7 +665,7 @@ nav {
 
                     h3 {
                         color: var(--lightBlue-color);
-                        font-size: 1.13rem;
+                        font-size: clamp(1rem, -0.875rem + 8.333vw, 1.13rem);
                         font-weight: 600;
                         padding-bottom: 0;
                         text-align: left;
@@ -697,15 +697,17 @@ nav {
 }
 
 @media screen and (max-width:500px) {
-    h3{
+    h3 {
         margin-top: 1rem;
     }
-    h2{
+
+    h2 {
         padding-bottom: 0rem;
     }
- .testimonial{
-    padding: .9rem;
- }
+
+    .testimonial {
+        padding: .9rem;
+    }
 }
 
 .areyouready {
@@ -780,32 +782,74 @@ footer {
     padding: 2rem;
     margin-top: 1rem;
 
-    a {
-        img {
-            height: 2rem;
-        }
-    }
-
-    p {
-        font-size: 1rem;
-        font-weight: 400;
-        text-align: left;
-        color: var(--white-color);
-        max-width: 28rem;
-        padding-top: .5rem;
-        width: 100%;
-    }
-
-    .links {
+    .footerMain {
         display: flex;
+        justify-content: space-between;
+        max-width: 75rem;
+        margin: 0 auto;
+        width: 100%;
+        gap: 2rem;
         flex-wrap: wrap;
-        gap: 1rem;
-        font-size: 1.5rem;
+
+        .footerContainer {
+            padding-right: 1rem;
+        }
 
         a {
-            i {
-                color: var(--white-color);
+            img {
+                height: 2rem;
             }
+        }
+
+        p {
+            font-size: 1rem;
+            font-weight: 400;
+            text-align: left;
+            color: var(--white-color);
+            max-width: 28rem;
+            padding-top: .5rem;
+            width: 100%;
+        }
+
+        .links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            font-size: 1.5rem;
+
+            a {
+                i {
+                    color: var(--white-color);
+                }
+            }
+        }
+
+        .f,
+        .s {
+            display: flex;
+            flex-direction: column;
+            color: var(--white-color);
+
+            h2 {
+                padding-bottom: .8rem;
+                font-size: 1.1rem;
+                font-weight: 500;
+            }
+
+            a {
+                color: #ffffffa5;
+                padding-bottom: .5rem;
+                transition: 200ms all;
+
+                &:hover {
+                    color: #ffffff;
+                }
+            }
+        }
+        @media screen and (max-width:500px) {
+         .f,.s{
+            width: 100%;
+         }
         }
     }
 }
