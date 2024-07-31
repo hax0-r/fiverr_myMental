@@ -595,6 +595,7 @@ nav {
 @media screen and (max-width:500px) {
  .assessments{
     padding: .9rem;
+    margin-top: 2rem;
  }
 }
 

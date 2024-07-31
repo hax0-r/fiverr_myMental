@@ -247,6 +247,8 @@ section {
 @media screen and (max-width:769px) {
     .mentalHealth {
         flex-direction: column;
+        padding: 1rem;
+        gap: 0;
     }
 }
 
