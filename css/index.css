@@ -536,29 +536,6 @@ nav .fa-solid:hover {
     }
 }
 
-@-webkit-keyframes leftCome {
-    0% {
-        opacity: 0;
-        -webkit-transform: translateX(-50px);
-        transform: translateX(-50px);
-    }
-
-    100% {
-        opacity: 1;
-    }
-}
-
-@keyframes leftCome {
-    0% {
-        opacity: 0;
-        -webkit-transform: translateX(-50px);
-        transform: translateX(-50px);
-    }
-
-    100% {
-        opacity: 1;
-    }
-}
 
 @media screen and (max-width: 768px) {
     .section1 {
