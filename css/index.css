@@ -268,7 +268,7 @@ nav .fa-solid:hover {
     -webkit-box-align: end;
     -ms-flex-align: end;
     align-items: end;
-    max-width: 80rem;
+    /* max-width: 80rem; */
     width: 100%;
     margin: auto;
 }
@@ -404,7 +404,7 @@ nav .fa-solid:hover {
     -webkit-box-align: end;
     -ms-flex-align: end;
     align-items: end;
-    max-width: 80rem;
+    /* max-width: 80rem; */
     width: 100%;
     margin: auto;
 }
