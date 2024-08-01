@@ -674,6 +674,8 @@ nav .fa-solid:hover {
     -webkit-transition: 700ms all;
     -o-transition: 700ms all;
     transition: 700ms all;
+    /* height: 30rem; */
+    width: 100%;
 }
 
 .assessments .cards .card img:hover {
