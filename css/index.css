@@ -785,8 +785,8 @@ nav .fa-solid:hover {
 
 .testimonial {
     background: -webkit-gradient(linear, left top, left bottom, color-stop(FF, #213847), color-stop(FF, #0c2e37));
-    background: -o-linear-gradient(#213847 FF, #0c2e37 FF);
-    background: linear-gradient(#213847 FF, #0c2e37 FF);
+    background: -o-linear-gradient(#213847FF, #0c2e37FF);
+    background: linear-gradient(#213847FF, #0c2e37FF);
     padding: 2rem;
     margin-top: 2rem;
 }
