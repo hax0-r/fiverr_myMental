@@ -607,13 +607,6 @@ nav .fa-solid:hover {
     padding: 2rem;
 }
 
-@media screen and (max-width:1695px) {
-    .assessments {
-        max-width: 60rem;
-        width: 100%;
-    }
-}
-
 .assessments p {
     color: #1d1d1d;
     font-size: 1.5rem;
