@@ -56,13 +56,20 @@
     <div class="container">
         <div class="sidebar">
             <h2>Explore Your Type</h2>
-            <select id="dropdown-menu" class="dropdown-menu" onchange="handleDropdownChange(this)">
-                <option value="strengths">Strengths</option>
-                <option value="weaknesses">Weaknesses</option>
-                <option value="career">Career Paths</option>
-                <option value="relationships">Relationships</option>
-                <option value="growth">Personal Growth Tips</option>
-            </select>
+            <div id="dropdown-menu" class="custom-dropdown-menu">
+                <button id="dropdown-button" class="dropdown-button">
+                    <i class="fa-solid fa-caret-down"></i>
+                    Strengths
+                </button>
+                <ul class="dropdown-list">
+                    <li class="active" data-tab="strengths">Strengths</li>
+                    <li data-tab="weaknesses">Weaknesses</li>
+                    <li data-tab="career">Career Paths</li>
+                    <li data-tab="relationships">Relationships</li>
+                    <li data-tab="growth">Personal Growth Tips</li>
+                </ul>
+            </div>
+
             <ul>
                 <li class="active"><a href="#" class="tab-link" data-tab="strengths">Strengths</a></li>
                 <li><a href="#" class="tab-link" data-tab="weaknesses">Weaknesses</a></li>
@@ -116,6 +123,8 @@
             </div>
         </div>
     </div>
+
+
 
     <!-- ========================== -->
 
@@ -173,49 +182,71 @@
         navResponsive.classList.remove("nav-responsive-close")
     })
 
-
     document.addEventListener('DOMContentLoaded', function () {
-    const tabLinks = document.querySelectorAll('.tab-link');
-    const tabContents = document.querySelectorAll('.tab-content');
+        const tabLinks = document.querySelectorAll('.tab-link');
+        const tabContents = document.querySelectorAll('.tab-content');
+        const dropdownButton = document.getElementById('dropdown-button');
+        const dropdownList = document.querySelector('.dropdown-list');
+        const dropdownItems = document.querySelectorAll('.dropdown-list li');
 
-    tabLinks.forEach(link => {
-        link.addEventListener('click', function (event) {
-            event.preventDefault();
+        tabLinks.forEach(link => {
+            link.addEventListener('click', function (event) {
+                event.preventDefault();
 
-            tabLinks.forEach(link => link.classList.remove('active'));
-            tabLinks.forEach(link => link.parentElement.classList.remove('active'));
+                tabLinks.forEach(link => link.classList.remove('active'));
+                tabLinks.forEach(link => link.parentElement.classList.remove('active'));
 
-            this.classList.add('active');
-            this.parentElement.classList.add('active');
+                this.classList.add('active');
+                this.parentElement.classList.add('active');
 
-            const target = this.getAttribute('data-tab');
-            tabContents.forEach(content => content.classList.remove('active'));
-            document.getElementById(target).classList.add('active');
+                const target = this.getAttribute('data-tab');
+                tabContents.forEach(content => content.classList.remove('active'));
+                document.getElementById(target).classList.add('active');
+            });
         });
+
+        dropdownButton.addEventListener('click', function () {
+            dropdownList.style.display = dropdownList.style.display === 'block' ? 'none' : 'block';
+        });
+
+        document.addEventListener('click', function (event) {
+            if (!event.target.closest('.custom-dropdown-menu')) {
+                dropdownList.style.display = 'none';
+            }
+        });
+
+        dropdownItems.forEach(item => {
+            item.addEventListener('click', function () {
+                dropdownButton.innerHTML = `<i class="fa-solid fa-caret-down"></i> ${this.textContent}`;
+
+                dropdownItems.forEach(item => item.classList.remove('active'));
+                this.classList.add('active');
+
+                const selectedTab = this.getAttribute('data-tab');
+                tabLinks.forEach(tab => {
+                    if (tab.dataset.tab === selectedTab) {
+                        tab.parentElement.classList.add('active');
+                        tab.classList.add('active');
+                    } else {
+                        tab.parentElement.classList.remove('active');
+                        tab.classList.remove('active');
+                    }
+                });
+
+                const tabContents = document.querySelectorAll('.tab-content');
+                tabContents.forEach(content => content.classList.remove('active'));
+                document.getElementById(selectedTab).classList.add('active');
+
+                dropdownList.style.display = 'none'; // Close dropdown after selection
+            });
+        });
+
+        // Set the first tab as active by default
+        dropdownItems[0].classList.add('active');
+        dropdownButton.innerHTML = `<i class="fa-solid fa-caret-down"></i> ${dropdownItems[0].textContent}`;
     });
-});
-
-function handleDropdownChange(selectElement) {
-    const selectedTab = selectElement.value;
-    const allTabs = document.querySelectorAll('.tab-link');
-
-    allTabs.forEach(tab => {
-        if (tab.dataset.tab === selectedTab) {
-            tab.parentElement.classList.add('active');
-            tab.classList.add('active');
-        } else {
-            tab.parentElement.classList.remove('active');
-            tab.classList.remove('active');
-        }
-    });
-
-    const tabContents = document.querySelectorAll('.tab-content');
-    tabContents.forEach(content => content.classList.remove('active'));
-    document.getElementById(selectedTab).classList.add('active');
-}
 
 
-    
 
 </script>
 
